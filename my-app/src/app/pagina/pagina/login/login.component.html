@@ -1,0 +1,15 @@
+<p>login works!</p>
+
+
+<form #f="ngForm" (ngSubmit)="login()">
+    <div>
+        <label>Correo electrónico: </label>
+        <input email type="email" name="correo" [(ngModel)]="loginDTO.correo" />
+    </div>
+    <div>
+        <label>Contraseña: </label>
+        <input type="password" name="password" [(ngModel)]="loginDTO.password" />
+    </div>
+
+    <button type="submit">Logear</button>
+</form>

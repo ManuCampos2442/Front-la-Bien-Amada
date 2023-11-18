@@ -1,0 +1,72 @@
+<header class="p-3 text-bg-primary">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center
+  justify-content-lg-start">
+      <a routerLink="" class="d-flex align-items-center mb-2 mb-lg-0 text-white
+  text-decoration-none">
+
+        <i class="fa-solid fa-stethoscope fs-3"></i>
+        <span class="fs-4 ms-3 me-3">{{title}}</span>
+      </a>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a routerLink="" class="nav-link px-2 text-white">Inicio</a></li>
+        <li *ngIf="isLogged && rol == 'medico'"><a routerLink="/gestion-atencion-cita" class="nav-link px-2 text-white">Atender C</a></li>
+        <li *ngIf="isLogged && rol == 'paciente'"><a routerLink="/gestion-citas-paciente" class="nav-link px-2 text-white">Gestión Citas Paciente</a></li>
+        <li *ngIf="isLogged && rol == 'paciente'"><a routerLink="/gestion-pqrs" class="nav-link px-2 text-white">Gestión PQRS</a></li>
+        <li *ngIf="isLogged && rol == 'paciente'"><a routerLink="/editar-perfil-paciente" class="nav-link px-2 text-white">Editar Perfil P</a></li>
+        <li *ngIf="isLogged && rol == 'medico'"><a routerLink="/gestion-citas-medico" class="nav-link px-2 text-white">Gesti Ci Med P</a></li>
+        <li *ngIf="isLogged && rol == 'medico'"><a routerLink="/gestion-dia-libre" class="nav-link px-2 text-white">Dia L</a></li>
+        <li *ngIf="isLogged && rol == 'paciente'"><a routerLink="/detalle-paciente/{{codigo}}" class="nav-link px-2 text-white">Detalle Paciente</a></li>
+       
+      </ul>
+
+
+      <div *ngIf="!isLogged; then nologged else logged"></div>
+
+        <ng-template #nologged>
+          
+         <div class="text-end">
+           <button type="button" routerLink="/login" class="btn btn-outline-light
+              me-2">Login</button>
+            <button type="button" routerLink="/registro" class="btn btn-warning">Sign-up</button>
+         </div>
+        </ng-template>
+
+
+      <ng-template #logged>
+        <div class="text-end">
+          <label class="me-3">Hola {{email}}</label>
+          <button type="button" (click)="logout()" class="btn btn-warning">Logout</button>
+        </div>
+      </ng-template>
+
+
+    </div>
+  </div>
+
+
+</header>
+<div class="seccion-pagina p-4">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4
+border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <span class="mb-3 mb-md-0 text-muted">&copy; 2023 Universidad del Quindío</span>
+    </div>
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-muted" href="#"><i class="fa-brands fa-x-twitter
+fs-5"></i></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><i class="fa-brands fa-instagram
+fs-5"></i></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><i class="fa-brands fa-facebook
+fs-5"></i></a></li>
+    </ul>
+
+
+
+  </footer>
+</div>

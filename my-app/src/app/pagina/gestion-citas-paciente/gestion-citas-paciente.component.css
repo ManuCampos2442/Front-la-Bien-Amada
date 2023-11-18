@@ -1,0 +1,17 @@
+.card{
+    margin-bottom: 50px;
+}
+
+.mb-3 row{
+    display: flex;
+}
+
+.col-sm-10{
+    margin-left: 50px;
+    width: 850px;
+}
+
+label{
+    width: 300px;
+}
+

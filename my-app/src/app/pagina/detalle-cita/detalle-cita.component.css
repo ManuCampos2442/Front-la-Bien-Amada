@@ -1,0 +1,27 @@
+p {
+    font-size: 17px;
+}
+
+#estadoPQRS {
+
+    color: aliceblue;
+ 
+    background-color: rgb(44, 139, 4);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80px; /* Puedes ajustar este valor según tus necesidades */
+  
+}
+
+#contenedor{
+    display: flex;
+    margin-left: 150px;
+}
+
+#caja1{
+    margin-right: 200px;
+}
+
+#caja2{
+    margin-left: 150px;
+}

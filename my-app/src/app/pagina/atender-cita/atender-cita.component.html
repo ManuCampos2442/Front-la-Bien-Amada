@@ -1,0 +1,45 @@
+
+<div class="card">
+    <div class="card-header ps-5 pt-4 pb-4">
+        <h5 class="mb-0"><i class="fa-solid fa-file-circle-plus me-2"></i>Atender Cita</h5>
+    </div>
+    <div class="card-body p-5">
+
+
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Notas Medicas: </label>
+            <div class="col-sm-10">
+                <textarea #notasMedicas="ngModel"
+                    [ngClass]="notasMedicas.invalid && (notasMedicas.dirty || notasMedicas.touched) ? 'is-invalid' : ''" type="text"
+                    [(ngModel)]="registroAtencionDTO.notasMedicas" name="notasMedicas" required class="form-control"></textarea>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Tratamiento: </label>
+            <div class="col-sm-10">
+                <textarea #tratamiento="ngModel"
+                    [ngClass]="tratamiento.invalid && (tratamiento.dirty || tratamiento.touched) ? 'is-invalid' : ''" type="text"
+                    [(ngModel)]="registroAtencionDTO.tratamiento" name="tratamiento" required class="form-control"></textarea>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Diagnostico: </label>
+            <div class="col-sm-10">
+                <textarea #diagnostico="ngModel"
+                    [ngClass]="diagnostico.invalid && (diagnostico.dirty || notasMedicas.touched) ? 'is-invalid' : ''" type="text"
+                    [(ngModel)]="registroAtencionDTO.diagnostico" name="diagnostico" required class="form-control"></textarea>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit"  (click)="atenderCita()"> 
+            <i class="fa-solid fa-circle-plus me-1" ></i>Atender Cita
+        </button>
+
+        <app-alerta [alerta]="alerta"></app-alerta>
+
+    </div>
+</div>
+
