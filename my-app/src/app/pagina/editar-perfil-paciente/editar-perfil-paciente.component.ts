@@ -127,4 +127,25 @@ export class EditarPerfilPacienteComponent {
       this.archivos = event.target.files;
     }
   }
+
+  public eliminarCuenta() {
+    const confirmacion = confirm('¿Estás seguro de que quieres eliminar tu cuenta?');
+  
+    if (confirmacion) {
+      let codigo = this.tokenService.getCodigo();
+  
+      this.pacienteService.eliminarCuenta(codigo).subscribe({
+        next: data => {
+          alert('Cuenta eliminada con éxito');
+        },
+        error: error => {
+          console.log(error);
+        }
+      });
+    } else {
+      // El usuario ha cancelado la operación
+      console.log('Operación de eliminación de cuenta cancelada');
+    }
+  }
+  
 }

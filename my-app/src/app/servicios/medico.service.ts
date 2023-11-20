@@ -32,4 +32,13 @@ export class MedicoService {
   public atenderCita(registroAtencionDTO: RegistroAtencionDTO): Observable<MensajeDTO> {
     return this.http.post<MensajeDTO>(`${this.userUrl}/atender-cita`, registroAtencionDTO);
   }
+  public verDetalleCita(codigoCita: number): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.userUrl}/detalle-cita/${codigoCita}`);
+  }
+  public listarHistorialAtenciones(codigoCita: number): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.userUrl}/atenciones/${codigoCita}`);
+  }
+  public verDetalleAtencion(codigoCita: number): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.userUrl}/detalle-atencion/${codigoCita}`);
+  }
 }

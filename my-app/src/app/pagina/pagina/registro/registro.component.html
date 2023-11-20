@@ -64,12 +64,11 @@
 
 
             <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">Fecha de nacimiento: </label>
+                <label class="col-sm-2 col-form-label">Fecha de Nacimiento: </label>
                 <div class="col-sm-10">
-                    <input type="date" name="fechaNacimiento" [(ngModel)]="registroPacienteDTO.fechaNacimiento" />
+                    <input type="date" name="fechaCita" [(ngModel)]="registroPacienteDTO.fechaNacimiento" class="form-control" />
                 </div>
             </div>
-
 
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Alergias: </label>
@@ -137,6 +136,8 @@
 
             <button class="btn btn-primary" type="submit" [disabled]="f.invalid || !sonIguales()"
                 (click)="registrar()">Registrarse</button>
+
+                
             <app-alerta [alerta]="alerta"></app-alerta>
 
 

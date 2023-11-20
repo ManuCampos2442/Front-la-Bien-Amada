@@ -1,5 +1,3 @@
-
-
 <div class="card">
     <div class="card-header ps-5 pt-4 pb-4">
         <h5 class="mb-0"><i class="fa-solid fa-file-circle-plus me-2"></i>Agendar Cita</h5>
@@ -11,47 +9,63 @@
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Tipo: </label>
                 <div class="col-sm-10">
-                    <select name="tipo" required class="form-select" [(ngModel)]="registroCitaDTO.tipo" (change)="listarMedicos($event)" >
+                    <select name="tipo" required class="form-select" [(ngModel)]="registroCitaDTO.tipo"
+                        (change)="listarMedicos($event)">
                         <option value="" selected>Seleccione una Especialidad</option>
                         <option [value]="item" *ngFor="let item of especialidades; index as i">{{item}}</option>
                     </select>
                 </div>
             </div>
-        
+
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Elija un medico: </label>
                 <div class="col-sm-10">
-                  <table class="table table-striped table-hover">
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th>Código</th>
-                        <th>Nombre del Medico</th>
-                        <th>Correo del Medico</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-                      <tr *ngFor="let item of medicoPorEspecialidad">
-                        <td><input class="form-check-input" type="checkbox" (change)="seleccionar(item.codigoMedico)" /></td>
-                        <td>
-                          <p>{{item.codigoMedico}}</p>
-                        </td>
-                        <td>
-                          <p>{{item.nombreMedico}}</p>
-                        </td>
-                        <td>
-                          <p>{{item.correoMedico}}</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Código</th>
+                                <th>Nombre del Medico</th>
+                                <th>Correo del Medico</th>
+                                <th>Horarios Medico</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <tr *ngFor="let item of medicoPorEspecialidad">
+                                <td><input class="form-check-input" type="checkbox" (change)="seleccionar(item.codigoMedico)"
+                                         /></td>
+                                <td>
+                                    <p>{{item.codigoMedico}}</p>
+                                </td>
+                                <td>
+                                    <p>{{item.nombreMedico}}</p>
+                                </td>
+                                <td>
+                                    <p>{{item.correoMedico}}</p>
+                                </td>
+
+                                 <td>
+                                    <ng-container *ngIf="item.horarios && item.horarios.length > 0; else noHorarios">
+                                      <p *ngFor="let horario of item.horarios">{{horario}}</p>
+                                    </ng-container>
+                                    <ng-template #noHorarios>
+                                      <p>Sin horarios disponibles</p>
+                                    </ng-template>
+                                  </td> 
+                                  
+                               
+                        
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-              </div>
+            </div>
 
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Motivo: </label>
                 <div class="col-sm-10">
-                    <textarea [(ngModel)]="registroCitaDTO.motivo" type="text" name="motivo" required class="form-control"></textarea>
+                    <textarea [(ngModel)]="registroCitaDTO.motivo" type="text" name="motivo" required
+                        class="form-control"></textarea>
                 </div>
             </div>
 
@@ -60,12 +74,12 @@
                 <div class="col-sm-10">
                     <input type="date" name="fechaCita" [(ngModel)]="registroCitaDTO.fechaCita" class="form-control" />
                 </div>
-            </div> 
+            </div>
 
             <hr>
-            
-            <button class="btn btn-primary" type="submit" [disabled]="f.invalid" (click)="agendarCita()"> 
-                <i class="fa-solid fa-circle-plus me-1" ></i>Agendar Cita
+
+            <button class="btn btn-primary" type="submit" [disabled]="f.invalid" (click)="agendarCita()">
+                <i class="fa-solid fa-circle-plus me-1"></i>Agendar Cita
             </button>
 
             <app-alerta [alerta]="alerta"></app-alerta>

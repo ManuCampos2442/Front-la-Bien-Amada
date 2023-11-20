@@ -10,14 +10,15 @@
       </a>
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><a routerLink="" class="nav-link px-2 text-white">Inicio</a></li>
-        <li *ngIf="isLogged && rol == 'medico'"><a routerLink="/gestion-atencion-cita" class="nav-link px-2 text-white">Atender C</a></li>
+        <li *ngIf="isLogged && rol == 'medico'"><a routerLink="/gestion-atencion-cita" class="nav-link px-2 text-white">Atender Citas</a></li>
         <li *ngIf="isLogged && rol == 'paciente'"><a routerLink="/gestion-citas-paciente" class="nav-link px-2 text-white">Gestión Citas Paciente</a></li>
         <li *ngIf="isLogged && rol == 'paciente'"><a routerLink="/gestion-pqrs" class="nav-link px-2 text-white">Gestión PQRS</a></li>
-        <li *ngIf="isLogged && rol == 'paciente'"><a routerLink="/editar-perfil-paciente" class="nav-link px-2 text-white">Editar Perfil P</a></li>
-        <li *ngIf="isLogged && rol == 'medico'"><a routerLink="/gestion-citas-medico" class="nav-link px-2 text-white">Gesti Ci Med P</a></li>
-        <li *ngIf="isLogged && rol == 'medico'"><a routerLink="/gestion-dia-libre" class="nav-link px-2 text-white">Dia L</a></li>
+        <li *ngIf="isLogged && rol == 'paciente'"><a routerLink="/editar-perfil-paciente" class="nav-link px-2 text-white">Gestion Perfil</a></li>
+        <li *ngIf="isLogged && rol == 'medico'"><a routerLink="/gestion-citas-medico" class="nav-link px-2 text-white">Gestion Citas Medico </a></li>
+        <li *ngIf="isLogged && rol == 'medico'"><a routerLink="/gestion-dia-libre" class="nav-link px-2 text-white">Dia Libre</a></li>
+        <li *ngIf="isLogged && rol == 'medico'"><a routerLink="/gestion-atenciones" class="nav-link px-2 text-white">Gestion Atenciones</a></li>
         <li *ngIf="isLogged && rol == 'paciente'"><a routerLink="/detalle-paciente/{{codigo}}" class="nav-link px-2 text-white">Detalle Paciente</a></li>
-       
+        <li *ngIf="isLogged && rol == 'paciente'"><a routerLink="/gestion-atenciones-paciente" class="nav-link px-2 text-white">Gestion Atenciones</a></li>
       </ul>
 
 

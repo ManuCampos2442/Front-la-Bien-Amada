@@ -1,15 +1,36 @@
-<p>login works!</p>
-
-
-<form #f="ngForm" (ngSubmit)="login()">
-    <div>
-        <label>Correo electrónico: </label>
-        <input email type="email" name="correo" [(ngModel)]="loginDTO.correo" />
+<div class="card">
+    <div class="card-header ps-5 pt-4 pb-4">
+        <h5 class="mb-0"><i class="fa-solid fa-user-plus me-3"></i>Login
+            paciente</h5>
     </div>
-    <div>
-        <label>Contraseña: </label>
-        <input type="password" name="password" [(ngModel)]="loginDTO.password" />
-    </div>
+    <div class="card-body p-5">
 
-    <button type="submit">Logear</button>
-</form>
+        <form #f="ngForm" (ngSubmit)="login()">
+
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Correo Electrónico: </label>
+                <div class="col-sm-10">
+                    <input #alergias="ngModel"
+                        [ngClass]="alergias.invalid && (alergias.dirty || alergias.touched) ? 'is-invalid' : ''" type="text"
+                        name="alergias" class="form-control" required [(ngModel)]="loginDTO.correo" />
+                </div>
+            </div>
+        
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Contraseña: </label>
+                <div class="col-sm-10">
+                    <input #password="ngModel"
+                        [ngClass]="password.invalid && (password.dirty || password.touched) ? 'is-invalid' : ''" type="password"
+                        name="password" class="form-control" required [(ngModel)]="loginDTO.password" />
+                </div>
+            </div>
+        
+            <button class="btn btn-primary" type="submit">Logear</button>
+        
+        
+        </form>
+    </div>
+</div>
+
+
+

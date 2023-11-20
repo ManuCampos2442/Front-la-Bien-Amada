@@ -27,6 +27,8 @@ export class GestionCitasMedicoComponent {
     this.citasCanceladas = [];
     this.obtencionCitasCanceladas();
 
+    
+
   }
 
 
@@ -47,6 +49,7 @@ export class GestionCitasMedicoComponent {
     this.medicoService.listarCitasRealizadas(codigo).subscribe({
       next: data => {
         this.citasRealizadas = data.respuesta;
+        console.log(this.citasRealizadas);
       },
       error: error => {
         console.log(error);
@@ -56,6 +59,7 @@ export class GestionCitasMedicoComponent {
 
   public obtencionCitasCanceladas() {
     let codigo = this.tokenService.getCodigo();
+    
     this.medicoService.listarCitasCanceladas(codigo).subscribe({
       next: data => {
         this.citasCanceladas = data.respuesta;

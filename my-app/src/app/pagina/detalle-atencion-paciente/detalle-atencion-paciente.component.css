@@ -1,0 +1,18 @@
+p {
+    font-size: 17px;
+}
+
+
+
+#contenedor{
+    display: flex;
+    margin-left: 150px;
+}
+
+#caja1{
+    margin-right: 180px;
+}
+
+#caja2{
+    margin-left: 140px;
+}

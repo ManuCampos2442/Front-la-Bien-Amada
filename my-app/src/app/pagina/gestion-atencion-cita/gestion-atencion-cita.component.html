@@ -19,7 +19,7 @@
                                 <th>Cedula Paciente</th>
                                 <th>Nombre Paciente</th>
                                 <th>Nombre Medico</th>
-                                <th>Especialidad</th>
+                             
                                 <th>Estado de la Cita</th>
                                 <th>Fecha</th>
                             </tr>
@@ -42,20 +42,12 @@
                                 <td>
                                     <p>{{item.nombreMedico}}</p>
                                 </td>
-                                <td>
-                                    <p>{{item.especialidad}}</p>
-                                </td>
                                 <td><span [ngClass]="item.estadoCita == 'PROGRAMADA' ? 'text-bg-success' :
     
             'text-bg-danger'" class="badge">{{item.estadoCita}}</span></td>
                                 <td>
                                     <p>{{item.fecha}}</p>
-                                </td>
-
-                                <td><a routerLink="/atender-cita/{{item.codigoCita}}"><i class="fa-solid
-        
-                                    fa-circle-info me-2"></i>Ver detalle</a>
-                                </td>
+                                  </td>
                                 
                             </tr>
 
@@ -72,6 +64,8 @@
             <button class="btn btn-primary" type="submit" [disabled]="f.invalid" (click)="atenderCita()">
                 <i class="fa-solid fa-circle-plus me-1"></i>Atender Cita
             </button>
+
+            <app-alerta [alerta]="alerta"></app-alerta>
 
         </form>
     </div>

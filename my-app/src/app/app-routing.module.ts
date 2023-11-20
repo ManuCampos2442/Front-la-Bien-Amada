@@ -24,6 +24,11 @@ import { GestionAtencionCitaComponent } from './pagina/gestion-atencion-cita/ges
 import { AtenderCitaComponent } from './pagina/atender-cita/atender-cita.component';
 import { DetalleCitaComponent } from './pagina/detalle-cita/detalle-cita.component';
 import { DetallePacienteComponent } from './pagina/detalle-paciente/detalle-paciente.component';
+import { DetalleCitaMedicoComponent } from './pagina/detalle-cita-medico/detalle-cita-medico.component';
+import { GestionAtencionesComponent } from './pagina/gestion-atenciones/gestion-atenciones.component';
+import { DetalleAtencionMedicoComponent } from './pagina/detalle-atencion-medico/detalle-atencion-medico.component';
+import { GestionAtencionesPacienteComponent } from './pagina/gestion-atenciones-paciente/gestion-atenciones-paciente.component';
+import { DetalleAtencionPacienteComponent } from './pagina/detalle-atencion-paciente/detalle-atencion-paciente.component';
 
 
 
@@ -82,11 +87,36 @@ const routes: Routes = [
     },
     { 
         path: "detalle-cita/:codigoCita", component: DetalleCitaComponent, canActivate: [RolesGuard], data: {
-            expectedRole: ["paciente"]
+            expectedRole: ["paciente", "medico"]
         }
     },
     { 
         path: "detalle-paciente/:codigo", component: DetallePacienteComponent, canActivate: [RolesGuard], data: {
+            expectedRole: ["paciente"]
+        }
+    },
+    { 
+        path: "detalle-cita-medico/:codigoCita", component: DetalleCitaMedicoComponent, canActivate: [RolesGuard], data: {
+            expectedRole: ["medico"]
+        }
+    },
+    { 
+        path: "gestion-atenciones", component: GestionAtencionesComponent, canActivate: [RolesGuard], data: {
+            expectedRole: ["medico"]
+        }
+    },
+    { 
+        path: "detalle-atencion-medico/:codigoCita", component: DetalleAtencionMedicoComponent, canActivate: [RolesGuard], data: {
+            expectedRole: ["medico"]
+        }
+    },
+    { 
+        path: "gestion-atenciones-paciente", component: GestionAtencionesPacienteComponent, canActivate: [RolesGuard], data: {
+            expectedRole: ["paciente"]
+        }
+    },
+    { 
+        path: "detalle-atencion-paciente/:codigoCita", component: DetalleAtencionPacienteComponent, canActivate: [RolesGuard], data: {
             expectedRole: ["paciente"]
         }
     },

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="card">
+
+    <div class="card-header ps-5 pt-4 pb-4">
+        <h5 class="mb-0"><i class="fa-solid fa-comments me-3"></i>Detalles de la Cita</h5>
+    </div>
+
+    <div class="card-body p-5">
+
+        <div id="contenedor">
+
+            <div id="caja1">
+
+                <h4>Codigo de la Cita</h4>
+                <p id="">{{detalleAtencion?.codigoCita}}</p>
+
+                <h4>Nombre del Paciente:</h4>
+                <p>{{detalleAtencion?.nombrePaciente}}</p>
+
+                <h4>Nombre del Medico</h4>
+                <p>{{detalleAtencion?.nombreMedico}}</p>
+
+                <h4>Especialidad del Medico</h4>
+                <p>{{detalleAtencion?.especialidad}}</p>
+
+
+            </div>
+
+            <div id="caja2">
+
+                <h4>Fecha de la Atencion</h4>
+                <p>{{detalleAtencion?.fechaAtencion}}</p>
+
+                <h4>Tratamiento</h4>
+                <p>{{detalleAtencion?.tratamiento}}</p>
+
+                <h4>Diagnostico</h4>
+                <p>{{detalleAtencion?.diagnostico}}</p>
+
+                <h4>Notas Medicas</h4>
+                <p>{{detalleAtencion?.notasMedicas}}</p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</html>

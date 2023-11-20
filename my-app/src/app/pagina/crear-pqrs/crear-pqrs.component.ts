@@ -57,7 +57,7 @@ export class CrearPqrsComponent {
 
   public cargarCitas() {
     let codigo = this.tokenService.getCodigo();
-    this.pacienteService.listarCitasPaciente(codigo).subscribe({
+    this.pacienteService.listarCitasRealizadas(codigo).subscribe({
       next: data => {
         this.citasPaciente = data.respuesta;
       },

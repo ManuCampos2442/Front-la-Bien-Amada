@@ -5,6 +5,7 @@ import { RegistroPQRSDTO } from '../modelo/RegistroPQRSDTO';
 import { MensajeDTO } from '../modelo/mensaje-dto';
 import { DetallePacienteDTO } from '../modelo/DetallePacienteDTO';
 import { RegistroCitaDTO } from '../modelo/RegistroCitaDTO';
+import { RegistroRespuestaDTO } from '../modelo/RegistroRespuestaDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,27 @@ export class PacienteService {
   }
   public verDetalleCita(codigoCita: number): Observable<MensajeDTO> {
     return this.http.get<MensajeDTO>(`${this.userUrl}/detalle-cita/${codigoCita}`);
+  }
+  public responderPQRS(registroRespuestaDTO: RegistroRespuestaDTO): Observable<MensajeDTO> {
+    return this.http.post<MensajeDTO>(`${this.userUrl}/responder-pqrs`, registroRespuestaDTO);
+  }
+  public listarMensajes(codigoPQRS: number, codigoPaciente: number): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.userUrl}/listar-mensajes/${codigoPQRS}/${codigoPaciente}`);
+  }
+  public listarHistorialAtenciones(codigoCita: number): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.userUrl}/atenciones/${codigoCita}`);
+  }
+  public listarCitasRealizadas(codigoPaciente: number): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.userUrl}/citas-completadas/${codigoPaciente}`);
+  }
+  public verDetalleAtencion(codigoCita: number): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.userUrl}/detalle-atencion/${codigoCita}`);
+  }
+  public filtrarAtencionesPorFecha(codigoPaciente: number, fecha: string): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.userUrl}/filtar-atencion-fecha/${codigoPaciente}/${fecha}`);
+  }
+  public filtrarAtencionesPorMedicox(codigoPaciente: number, codigoMdico: number): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.userUrl}/filtar-atencion-medico/${codigoPaciente}/${codigoMdico}`);
   }
 
 }

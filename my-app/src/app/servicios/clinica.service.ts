@@ -31,4 +31,8 @@ export class ClinicaService {
     return this.http.get<MensajeDTO>(`${this.clinicaURL}/lista-medico-especialidad/${especialidad}`);
   }
 
+  public listarHorariosMedico(codigoMedico: number): Observable<MensajeDTO> {
+    return this.http.get<MensajeDTO>(`${this.clinicaURL}/listar-horario-medico/${codigoMedico}`);
+  }
+
 }

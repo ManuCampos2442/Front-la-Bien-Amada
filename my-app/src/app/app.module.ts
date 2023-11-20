@@ -23,6 +23,11 @@ import { GestionAtencionCitaComponent } from './pagina/gestion-atencion-cita/ges
 import { AtenderCitaComponent } from './pagina/atender-cita/atender-cita.component';
 import { DetalleCitaComponent } from './pagina/detalle-cita/detalle-cita.component';
 import { DetallePacienteComponent } from './pagina/detalle-paciente/detalle-paciente.component';
+import { DetalleCitaMedicoComponent } from './pagina/detalle-cita-medico/detalle-cita-medico.component';
+import { GestionAtencionesComponent } from './pagina/gestion-atenciones/gestion-atenciones.component';
+import { DetalleAtencionMedicoComponent } from './pagina/detalle-atencion-medico/detalle-atencion-medico.component';
+import { GestionAtencionesPacienteComponent } from './pagina/gestion-atenciones-paciente/gestion-atenciones-paciente.component';
+import { DetalleAtencionPacienteComponent } from './pagina/detalle-atencion-paciente/detalle-atencion-paciente.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import { DetallePacienteComponent } from './pagina/detalle-paciente/detalle-paci
     GestionAtencionCitaComponent,
     AtenderCitaComponent,
     DetalleCitaComponent,
-    DetallePacienteComponent
+    DetallePacienteComponent,
+    DetalleCitaMedicoComponent,
+    GestionAtencionesComponent,
+    DetalleAtencionMedicoComponent,
+    GestionAtencionesPacienteComponent,
+    DetalleAtencionPacienteComponent
   ],
   imports: [
     BrowserModule,
