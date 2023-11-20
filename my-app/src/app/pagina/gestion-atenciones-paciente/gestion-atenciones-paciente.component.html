@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header ps-5 pt-4 pb-4">
-        <h5 class="mb-0"><i class="fa-solid fa-comments me-3"></i>Gestión de Citas del Medico</h5>
+        <h5 class="mb-0"><i class="fa-solid fa-comments me-3"></i>Gestión de Atenciones del Paciente</h5>
     </div>
 
     <div class="card-body p-5">
@@ -14,10 +14,11 @@
                 <table class="table table-striped table-hover" style="width: 100%;">
                     <thead>
                         <tr>
-
                             <th>Código Cita</th>
                             <th>Nombre Paciente</th>
-                            <th>Fecha</th>
+                            <th>Nombre Medico</th>
+                            <th>Codigo Medico</th>
+                          
                         </tr>
                     </thead>
 
@@ -30,8 +31,12 @@
                                 <p>{{item.nombrePaciente}}</p>
                             </td>
                             <td>
-                                <p>{{item.fechaAtencion}}</p>
+                                <p>{{item.nombreMedico}}</p>
                             </td>
+                            <td>
+                                <p>{{item.codigoMedico}}</p>
+                            </td>
+
                         
                             <td><a routerLink="/detalle-atencion-paciente/{{item.codigoCita}}"><i class="fa-solid
         
@@ -52,7 +57,7 @@
 
 <div class="card">
     <div class="card-header ps-5 pt-4 pb-4">
-        <h5 class="mb-0"><i class="fa-solid fa-comments me-3"></i>Citas Filtradas Por Fecha</h5>
+        <h5 class="mb-0"><i class="fa-solid fa-comments me-3"></i>Atenciones Filtradas Por Fecha</h5>
     </div>
     <div class="card-body p-5">
 
@@ -71,8 +76,6 @@
                     <th>Código Cita</th>
                     <th>Codigo del Medico</th>
                     <th>Nombre Medico</th>
-                    <th>Motivo</th>
-                    <th>Fecha</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -86,13 +89,6 @@
                     <td>
                         <p>{{item.nombreMedico}}</p>
                     </td>
-                    <td>
-                        <p>{{item.motivo}}</p>
-                    </td>
-                    <td>
-                        <p>{{item.fecha}}</p>
-                    </td>
-
                     <td><a routerLink="/detalle-atencion-paciente/{{item.codigoCita}}"><i
                         class="fa-solid fa-circle-info me-2"></i>Ver detalle</a></td>
 
@@ -110,7 +106,7 @@
 
 <div class="card">
     <div class="card-header ps-5 pt-4 pb-4">
-        <h5 class="mb-0"><i class="fa-solid fa-comments me-3"></i>Citas Filtradas Por Codigo del Medico</h5>
+        <h5 class="mb-0"><i class="fa-solid fa-comments me-3"></i>Atenciones Filtradas Por Codigo del Medico</h5>
     </div>
     <div class="card-body p-5">
 
@@ -132,9 +128,7 @@
                 <tr>
                     <th>Código Cita</th>
                     <th>Codigo del Medico</th>
-                    <th>Nombre Medico</th>
-                    <th>Motivo</th>
-                    <th>Fecha</th>
+                    <th>Nombre Medico</th>                 
                     <th></th>
                 </tr>
             </thead>
@@ -149,13 +143,6 @@
                     <td>
                         <p>{{item.nombreMedico}}</p>
                     </td>
-                    <td>
-                        <p>{{item.motivo}}</p>
-                    </td>
-                    <td>
-                        <p>{{item.fecha}}</p>
-                    </td>
-
                     <td><a routerLink="/detalle-atencion-paciente/{{item.codigoCita}}"><i
                                 class="fa-solid fa-circle-info me-2"></i>Ver detalle</a></td>
 
