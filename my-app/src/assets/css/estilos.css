@@ -1,0 +1,122 @@
+
+/*-------------INDEX-----------*/
+
+.marketing{
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.col-md-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btn.btn-secondary {
+    background-color: blue; /* Cambia #ff0000 por el color que desees */
+    color: #ffffff; /* Cambia #ffffff por el color del texto que desees */
+}
+
+
+.col-md-5 img{
+
+    transition: 1s; /* Agregamos una transición para hacerlo suave */
+
+}
+
+.col-md-5 img:hover {
+
+    opacity: 0.6; /* Cambia el valor de la opacidad según tus preferencias (0.6 significa 60% de opacidad) */
+    transform: scale(1.01); /* Escalamos la imagen en un 1% más grande */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Puedes ajustar los valores según tus preferencias */    
+}
+
+.col-md-7 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  text-align: center; /* Centra horizontalmente el texto dentro del contenedor */
+  height: 65vh; /* Opcional: Establece una altura completa de la ventana si es necesario */
+}
+
+
+.mapa {
+    background: #fcfcfc;
+    margin: 40px auto;
+    position: relative;
+    top: -20px; /* Ajusta este valor negativo para mover el mapa hacia arriba */
+}
+
+.mapa p {
+    margin: 35px auto;
+    text-align: center;
+}
+
+.mapa-contenido {
+    width: 100%; /* Cambia el valor del ancho según tus preferencias */
+    margin: 0 auto;
+}
+
+/*-------------INGRESAR-----------*/
+
+/* Estilos para el recuadro redondeado */
+.form-signin {
+    max-width: 420px;
+    padding: 30px 25px;
+    margin: 50px auto;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    background-color: #fff;
+   }
+   
+   /* Estilos para centrar el contenido */
+   .form-signin h1 {
+    text-align: center;
+   }
+   
+   .form-signin p {
+    text-align: center;
+   }
+   
+   .form-signin svg {
+    display: block;
+    margin: 0 auto 15px;
+   }
+
+   .form-floating + .form-floating {
+      margin-top: 10px; /* Agrega espacio entre elementos */
+  }
+
+ 
+  /*----------MEDICOS----------*/
+
+  
+
+/* Estilo para los iconos y texto centrados */
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Estilo para los iconos con margen grueso azul */
+  .feature-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: .75rem;
+    background-color: #007BFF; /* Fondo azul */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Estilo para el icono dentro del contenedor */
+  .feature-icon svg {
+    margin: 8px; /* Margen grueso azul alrededor del icono */
+    fill: #fff; /* Color del icono en el interior (blanco en este caso) */
+  }
+  
