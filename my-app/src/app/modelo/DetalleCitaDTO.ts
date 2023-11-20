@@ -3,6 +3,7 @@ export class DetalleCitaDTO{
     cedulaPaciente: string = "";
     nombrePaciente: string = "";
     nombreMedico: string = "";
+    codigoMedico: number = 0;
     especialidad: string = "";
     estadoCita: string = "";
     motivo: string = "";
