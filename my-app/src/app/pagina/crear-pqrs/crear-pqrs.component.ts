@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DetalleCitaDTO } from 'src/app/modelo/DetalleCitaDTO';
 import { ItemCitaDTO } from 'src/app/modelo/ItemCitaDTO';
 import { RegistroPQRSDTO } from 'src/app/modelo/RegistroPQRSDTO';
@@ -21,7 +22,7 @@ export class CrearPqrsComponent {
   detalleCita: DetalleCitaDTO | undefined;
 
   constructor(private pacienteService: PacienteService,
-    private tokenService: TokenService) {
+    private tokenService: TokenService, private router: Router) {
     this.registroPQRSDTO = new RegistroPQRSDTO();
 
 
@@ -48,6 +49,11 @@ export class CrearPqrsComponent {
       next: data => {
         alert("PQRS registrada con exito");
         this.alerta = { tipo: "success", mensaje: data.respuesta }
+        // Agregar un retraso de 3 segundos antes de navegar
+        setTimeout(() => {
+          this.router.navigate(['/gestion-pqrs']);
+        }, 2000);
+
       },
       error: data => {
         this.alerta = { tipo: "danger", mensaje: data.error.respuesta }
@@ -93,7 +99,7 @@ export class CrearPqrsComponent {
 
   }
 
-  
+
 
 
 }

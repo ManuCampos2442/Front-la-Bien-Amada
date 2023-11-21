@@ -41,6 +41,16 @@ export class AgendarCitaComponent {
   }
 
 
+  getMinDate(): string {
+    // Obtener la fecha actual en formato YYYY-MM-DD
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, '0');
+    const day = today.getDate().toString().padStart(2, '0');
+    
+    return `${year}-${month}-${day}`;
+  }
+
 
   private cargarEspecialidades() {
     this.clinicaService.listarEspecialidades().subscribe({
@@ -54,6 +64,7 @@ export class AgendarCitaComponent {
     });
   }
 
+  
 
 
   private listarMedicoPorEspecialidad(especialidad: string) {
@@ -101,24 +112,13 @@ export class AgendarCitaComponent {
       next: data => {
         alert("Registro Exitoso")
         console.log(data);
+        this.router.navigate(['/gestion-citas-paciente']);
+
+
       },
       error: error => {
         
         this.alerta = { tipo: "danger", mensaje: error.error.respuesta }
-       /*  alert(this.alerta.mensaje);
-        console.log(error);
-        const currentUrl = this.location.path();
-  
-        // Recarga la página sin cambiar la posición de desplazamiento
-        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          // Vuelve a la URL original después de la recarga
-          this.router.navigate([currentUrl]);
-  
-          // Restaura la posición de desplazamiento después de la recarga
-          setTimeout(() => {
-            window.scrollTo(0, scrollPosition);
-          });
-        }); */
       }
     });
   }

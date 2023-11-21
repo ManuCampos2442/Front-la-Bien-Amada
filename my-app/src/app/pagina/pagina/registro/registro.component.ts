@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Alerta } from 'src/app/modelo/alerta';
 import { RegistroPacienteDTO } from 'src/app/modelo/registro-paciente-dto';
 import { AuthService } from 'src/app/servicios/auth.service';
@@ -63,7 +64,8 @@ export class RegistroComponent {
   //private authService: AuthService
 
   constructor(private authService: AuthService,
-    private clinicaService: ClinicaService, private imagenService: ImagenService) {
+    private clinicaService: ClinicaService, private imagenService: ImagenService,
+    private router: Router) {
 
     this.registroPacienteDTO = new RegistroPacienteDTO();
 
@@ -88,12 +90,15 @@ export class RegistroComponent {
         next: data => {
           alert("Registro Exitoso")
           console.log(data);
+          this.router.navigate(['/login']);
         },
         error: error => {
+          alert("Asegurate de llenar todos los campos primero")
           console.log(error);
         }
       });
     } else {
+      alert("Asegurate de llenar todos los campos y subir una imagen")
       console.log("Debe subir una imagen");
     }
 
@@ -106,6 +111,17 @@ export class RegistroComponent {
     //   } 
   }
 
+  getMaxDate(): string {
+    // Obtener la fecha actual en formato YYYY-MM-DD
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, '0');
+    const day = today.getDate().toString().padStart(2, '0');
+    
+    return `${year}-${month}-${day}`;
+  }
+
+  
   public sonIguales(): boolean {
     return this.registroPacienteDTO.password == this.registroPacienteDTO.confirmaPassword;
   }
@@ -123,8 +139,7 @@ export class RegistroComponent {
       const formData = new FormData();
       formData.append('file', this.archivos[0]);
       this.imagenService.subir(formData).subscribe({
-        next: data => {
-          alert("Imagen Subida con Exito")
+        next: data => {  
           this.registroPacienteDTO.urlFoto = data.respuesta.url;
         },
         error: error => {

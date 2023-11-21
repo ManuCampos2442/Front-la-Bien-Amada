@@ -64,7 +64,7 @@
                 <label class="col-sm-2 col-form-label">Fecha de Nacimiento: </label>
                 <div class="col-sm-10">
                     <input type="date" name="fechaCita" [(ngModel)]="detallePacienteDTO.fechaNacimiento"
-                        class="form-control" />
+                        class="form-control" [max]="getMaxDate()" />
                 </div>
             </div>
 

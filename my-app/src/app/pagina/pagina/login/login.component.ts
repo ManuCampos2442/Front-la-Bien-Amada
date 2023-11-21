@@ -29,7 +29,7 @@ export class LoginComponent {
         this.tokenService.login(data.respuesta.token);
       },
       error: (error: { error: { respuesta: any; }; }) => {
-        alert("La cuenta ya ha sido eliminada o no existe");
+        
         this.alerta = { mensaje: error.error.respuesta, tipo: "danger" };
       }
     });

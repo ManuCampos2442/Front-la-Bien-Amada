@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DetallePacienteDTO } from 'src/app/modelo/DetallePacienteDTO';
 import { Alerta } from 'src/app/modelo/alerta';
 import { AuthService } from 'src/app/servicios/auth.service';
@@ -29,6 +30,7 @@ export class EditarPerfilPacienteComponent {
           this.subirImagen();
           alert("Edicion de perfil exitoso")
           console.log(data);
+          this.router.navigate(['/detalle-paciente/:codigo']);
         },
         error: error => {
           alert("Asegurate de llenar todos los campos primero")
@@ -43,10 +45,20 @@ export class EditarPerfilPacienteComponent {
 
   }
 
+  getMaxDate(): string {
+    // Obtener la fecha actual en formato YYYY-MM-DD
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, '0');
+    const day = today.getDate().toString().padStart(2, '0');
+    
+    return `${year}-${month}-${day}`;
+  }
 
   constructor(private authService: AuthService,
     private clinicaService: ClinicaService, private imagenService: ImagenService,
-    private pacienteService: PacienteService, private tokenService: TokenService) {
+    private pacienteService: PacienteService, private tokenService: TokenService,
+    private router: Router) {
 
     this.detallePacienteDTO = new DetallePacienteDTO();
 
@@ -109,7 +121,6 @@ export class EditarPerfilPacienteComponent {
       this.imagenService.subir(formData).subscribe({
 
         next: (data: { respuesta: { url: string; }; }) => {
-          alert("Imagen Subida con Exito")
           this.detallePacienteDTO.urlFoto = data.respuesta.url;
         },
         error: (error: { error: any; }) => {
