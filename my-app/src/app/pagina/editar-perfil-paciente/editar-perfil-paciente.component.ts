@@ -148,6 +148,7 @@ export class EditarPerfilPacienteComponent {
       this.pacienteService.eliminarCuenta(codigo).subscribe({
         next: data => {
           alert('Cuenta eliminada con éxito');
+          this.tokenService.logout();
         },
         error: error => {
           console.log(error);
